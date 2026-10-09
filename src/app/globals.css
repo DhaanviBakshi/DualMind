@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm off-white background & deep navy text */
+    --background: 40 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Restrained Indigo accents */
+    --primary: 238 65% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 14%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 12% 46%;
+
+    --accent: 238 65% 96%;
+    --accent-foreground: 238 65% 42%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 238 65% 56%;
+
+    --surface-subtle: 40 15% 96%;
+    --surface-elevated: 0 0% 100%;
+
+    --radius: 0.65rem;
+  }
+
+  .dark {
+    --background: 224 45% 7%;
+    --foreground: 210 25% 96%;
+
+    --card: 224 40% 10%;
+    --card-foreground: 210 25% 96%;
+
+    --popover: 224 40% 10%;
+    --popover-foreground: 210 25% 96%;
+
+    --primary: 238 82% 66%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 224 35% 15%;
+    --secondary-foreground: 210 25% 96%;
+
+    --muted: 224 30% 16%;
+    --muted-foreground: 215 18% 65%;
+
+    --accent: 238 60% 18%;
+    --accent-foreground: 238 80% 80%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 224 28% 18%;
+    --input: 224 28% 18%;
+    --ring: 238 82% 66%;
+
+    --surface-subtle: 224 38% 12%;
+    --surface-elevated: 224 40% 13%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom UI micro-classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
